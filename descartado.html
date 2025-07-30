@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,156 +7,138 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Segoe+UI:wght@300;400;500;600;700&display=swap');
-
+        
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-
+        
         .typing-animation {
             border-right: 2px solid #0078d4;
             animation: blink 1s infinite;
         }
-
+        
         @keyframes blink {
-
-            0%,
-            50% {
-                border-color: #0078d4;
-            }
-
-            51%,
-            100% {
-                border-color: transparent;
-            }
+            0%, 50% { border-color: #0078d4; }
+            51%, 100% { border-color: transparent; }
         }
-
+        
         .fade-in {
             animation: fadeIn 0.5s ease-in;
         }
-
+        
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-
+        
         .tip-overlay {
             background: rgba(0, 0, 0, 0.7);
             backdrop-filter: blur(5px);
         }
-
+        
         .copilot-gradient {
             background: linear-gradient(135deg, #0078d4 0%, #106ebe 100%);
         }
-
+        
         .message-bubble {
-            max-width: 90%;
+            max-width: 80%;
             word-wrap: break-word;
-            font-size: 0.875rem;
         }
-
+        
         .user-message {
             background: #f3f2f1;
             border: 1px solid #e1dfdd;
         }
-
+        
         .ai-message {
             background: #ffffff;
             border: 1px solid #e1dfdd;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
     </style>
 </head>
-
 <body class="bg-gray-50">
-    <!-- Contenedor principal adaptado para formato cuadrado -->
+    <!-- Contenedor principal con dimensiones de video horizontal -->
     <div class="max-w-6xl mx-auto my-8 bg-white rounded-lg shadow-xl overflow-hidden" style="aspect-ratio: 16/9;">
-
+        
         <!-- Portada inicial -->
-        <div id="coverPage"
-            class="h-full flex flex-col justify-center items-center text-center p-8 copilot-gradient text-white relative">
+        <div id="coverPage" class="h-full flex flex-col justify-center items-center text-center p-8 copilot-gradient text-white relative">
             <div class="absolute inset-0 bg-black bg-opacity-20"></div>
             <div class="relative z-10 max-w-4xl">
                 <div class="mb-6">
-                    <div
-                        class="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-                        <!-- Imagen que reemplaza al SVG -->
-                        <img src="./images/copilot.png" alt="Copilot" class="w-[80px] h-auto">
+                    <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+                        <svg class="w-12 h-12 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        </svg>
                     </div>
-                    <h1
-                        class="text-3xl font-bold mb-4 bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent">
+                    <h1 class="text-4xl font-bold mb-4 bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent">
                         Simulador de Prompt Engineering
                     </h1>
                     <p class="text-xl opacity-90 mb-8">
-                        Aprende a crear prompts más efectivos para Microsoft Copilot
+                        Aprende a crear prompts más efectivos con Microsoft Copilot
                     </p>
                 </div>
-
+                
                 <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-xl p-6 mb-8">
-                    <h2 class="text-xl font-semibold mb-4">🎯 Técnicas que aprenderás:</h2>
+                    <h2 class="text-xl font-semibold mb-4">🎯 Lo que aprenderás:</h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-left text-sm">
                         <div class="flex items-center space-x-3">
                             <span class="text-xl">💡</span>
-                            <span>Especificidad</span>
+                            <span>Técnica de Especificidad</span>
                         </div>
                         <div class="flex items-center space-x-3">
                             <span class="text-xl">🎭</span>
-                            <span>Rol play</span>
+                            <span>Asignación de Roles</span>
                         </div>
                         <div class="flex items-center space-x-3">
                             <span class="text-xl">📋</span>
-                            <span>Formato de salida</span>
+                            <span>Especificación de Formato</span>
                         </div>
                         <div class="flex items-center space-x-3">
                             <span class="text-xl">✅</span>
-                            <span>Restricciones de salida</span>
+                            <span>Restricciones Positivas y Negativas</span>
                         </div>
                         <div class="flex items-center space-x-3">
                             <span class="text-xl">📚</span>
-                            <span>Ejemplos</span>
+                            <span>Uso de Ejemplos</span>
                         </div>
                         <div class="flex items-center space-x-3">
                             <span class="text-xl">🔄</span>
-                            <span>Corrección y retroalimentación</span>
+                            <span>Corrección y Retroalimentación</span>
                         </div>
                         <div class="flex items-center space-x-3">
                             <span class="text-xl">❓</span>
-                            <span>Solicitar información adicional</span>
+                            <span>Solicitar Información Adicional</span>
                         </div>
                         <div class="flex items-center space-x-3">
                             <span class="text-xl">🎯</span>
-                            <span>Iteración y refinamiento</span>
+                            <span>Iteración y Refinamiento</span>
                         </div>
                     </div>
                 </div>
-
-                <button id="startBtn"
-                    class="bg-white text-blue-600 px-10 py-4 rounded-xl font-bold text-xl shadow-lg hover:bg-blue-50 transition-all transform hover:scale-105">
+                
+                <button id="startBtn" class="bg-white text-blue-600 px-10 py-4 rounded-xl font-bold text-xl shadow-lg hover:bg-blue-50 transition-all transform hover:scale-105">
                     🚀 Comenzar Simulación
                 </button>
             </div>
         </div>
+
         <!-- Interfaz del simulador (inicialmente oculta) -->
         <div id="simulatorInterface" class="hidden h-full">
             <!-- Header de Copilot -->
-            <div class="copilot-gradient text-white p-3 flex items-center justify-between">
+            <div class="copilot-gradient text-white p-4 flex items-center justify-between">
                 <div class="flex items-center space-x-3">
                     <div class="w-8 h-8 bg-white rounded-full flex items-center justify-center">
-                        <img src="./images/copilot.png" alt="Copilot" class="w-[80px] h-auto">
-
+                        <svg class="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        </svg>
                     </div>
                     <div>
-                        <h1 class="text-base font-semibold">Microsoft Copilot</h1>
-                        <p class="text-xs opacity-90">Tu asistente de IA</p>
+                        <h1 class="text-lg font-semibold">Microsoft Copilot</h1>
+                        <p class="text-sm opacity-90">Tu asistente de IA</p>
                     </div>
                 </div>
-                <div class="text-sm opacity-90">Simulador</div>
+                <div class="text-sm opacity-90">Simulador de Prompt Engineering</div>
             </div>
 
             <!-- Área de chat -->
@@ -169,22 +150,20 @@
                 <!-- Área de controles -->
                 <div class="border-t bg-white p-6 shadow-lg">
                     <div class="text-center mb-4">
-                        <button id="nextBtn"
-                            class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold text-sm shadow-lg transition-all transform hover:scale-105">
-                            Ver instrucciones
+                        <button id="nextBtn" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold text-lg shadow-lg transition-all transform hover:scale-105">
+                            Comenzar con el primer prompt
                         </button>
                     </div>
                     <div class="flex items-center justify-between text-sm text-gray-600">
                         <div>
-                            Paso <span id="stepCounter">1</span> de 21
+                            Paso <span id="stepCounter">1</span> de 20
                         </div>
                         <div>
                             <span id="progressText">Listo para empezar</span>
                         </div>
                     </div>
                     <div class="mt-3 bg-gray-200 rounded-full h-3">
-                        <div id="progressBar" class="bg-blue-600 h-3 rounded-full transition-all duration-500"
-                            style="width: 0%"></div>
+                        <div id="progressBar" class="bg-blue-600 h-3 rounded-full transition-all duration-500" style="width: 0%"></div>
                     </div>
                 </div>
             </div>
@@ -201,8 +180,7 @@
                 <h3 class="text-xl font-semibold text-gray-800">Consejo de Prompt Engineering</h3>
             </div>
             <p id="tipText" class="text-gray-600 mb-6 leading-relaxed"></p>
-            <button id="tipContinue"
-                class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-medium transition-colors">
+            <button id="tipContinue" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-medium transition-colors">
                 Continuar
             </button>
         </div>
@@ -224,7 +202,7 @@
                 this.coverPage = document.getElementById('coverPage');
                 this.simulatorInterface = document.getElementById('simulatorInterface');
                 this.startBtn = document.getElementById('startBtn');
-
+                
                 this.steps = [
                     {
                         type: 'user',
@@ -259,7 +237,7 @@
                     {
                         type: 'tip',
                         tip: {
-                            title: 'Técnica 2: Asignación de roles',
+                            title: 'Técnica 2: Asignación de Roles',
                             icon: '🎭',
                             iconBg: 'bg-purple-100',
                             text: 'Pedirle a la IA que adopte un rol específico es una forma sencilla de empezar a generar mejores prompts. "Actúa como si fueras..."'
@@ -279,7 +257,7 @@
                     {
                         type: 'tip',
                         tip: {
-                            title: 'Técnica 3: Formato de salida',
+                            title: 'Técnica 3: Especificación de Formato',
                             icon: '📋',
                             iconBg: 'bg-green-100',
                             text: 'La IA puede generar diversos tipos de texto. Indícale cómo quieres que presente el resultado: en viñetas, tablas, párrafos, etc.'
@@ -293,13 +271,13 @@
                     },
                     {
                         type: 'ai',
-                        message: 'Asunto: Transforme su negocio con desarrollo de software estratégico<br><br>Estimado/a [Nombre],<br><br>Basándome en las mejores prácticas de comunicación empresarial, me dirijo a usted para presentar cómo podemos impulsar el crecimiento de [Empresa].<br><br><strong>Nuestros 3 pilares de valor:</strong><br><br>• <strong>Eficiencia Operativa</strong>: Automatizamos procesos que reducen costos operativos hasta un 35% y mejoran la productividad del equipo<br><br>• <strong>Escalabilidad Inteligente</strong>: Desarrollamos arquitecturas que soportan crecimiento del 200-500% sin comprometer el rendimiento<br><br>• <strong>ROI Comprobado</strong>: Nuestros clientes ven retorno de inversión promedio del 180% en los primeros 12 meses<br><br><strong>Métricas de nuestros últimos proyectos:</strong><br>- 98% de satisfacción del cliente<br>- Entrega puntual en el 95% de los casos<br>- Reducción promedio del 40% en tiempo de procesamiento<br><br>¿Podríamos agendar 20 minutos esta semana para discutir sus objetivos específicos?<br><br>Saludos cordiales,<br>[Nombre]',
+                        message: 'Asunto: Transforme su negocio con desarrollo de software estratégico\n\nEstimado/a [Nombre],\n\nBasándome en las mejores prácticas de comunicación empresarial, me dirijo a usted para presentar cómo podemos impulsar el crecimiento de [Empresa].\n\n**Nuestros 3 pilares de valor:**\n\n• **Eficiencia Operativa**: Automatizamos procesos que reducen costos operativos hasta un 35% y mejoran la productividad del equipo\n\n• **Escalabilidad Inteligente**: Desarrollamos arquitecturas que soportan crecimiento del 200-500% sin comprometer el rendimiento\n\n• **ROI Comprobado**: Nuestros clientes ven retorno de inversión promedio del 180% en los primeros 12 meses\n\n**Métricas de nuestros últimos proyectos:**\n- 98% de satisfacción del cliente\n- Entrega puntual en el 95% de los casos\n- Reducción promedio del 40% en tiempo de procesamiento\n\n¿Podríamos agendar 20 minutos esta semana para discutir sus objetivos específicos?\n\nSaludos cordiales,\n[Nombre]',
                         buttonText: '✅ Ver técnica'
                     },
                     {
                         type: 'tip',
                         tip: {
-                            title: 'Técnica 4: Restricciones de salida',
+                            title: 'Técnica 4: Restricciones Positivas y Negativas',
                             icon: '✅',
                             iconBg: 'bg-red-100',
                             text: 'Indica a la IA qué quieres y qué NO quieres en tu respuesta. Esto puede ahorrarte mucho tiempo y mejorar los resultados.'
@@ -313,13 +291,13 @@
                     },
                     {
                         type: 'ai',
-                        message: 'Asunto: Acelere su crecimiento con soluciones de software probadas<br><br>Hola [Nombre],<br><br>Soy [Tu nombre] y ayudo a empresas tecnológicas a crecer más rápido con software personalizado.<br><br><strong>Por qué nuestros clientes nos eligen:</strong><br><br>• <strong>Resultados rápidos</strong>: Entregamos soluciones funcionales en 6-8 semanas promedio<br>• <strong>Crecimiento real</strong>: Nuestros clientes aumentan su eficiencia operativa en 45% el primer año<br>• <strong>Soporte confiable</strong>: 99.5% de disponibilidad y respuesta en menos de 2 horas<br><br>Recién ayudamos a una startup fintech a procesar 10x más transacciones sin aumentar su equipo técnico.<br><br><strong>¿Le interesa saber cómo?</strong><br><br>Podríamos conversar 15 minutos sobre sus desafíos actuales. Sin compromisos, solo una charla entre profesionales.<br><br>¿Qué tal el jueves a las 3 PM?<br><br>Saludos,<br>[Tu nombre]<br><strong>P.D.:</strong> Si prefiere, puede responder con un horario que le convenga mejor.',
+                        message: 'Asunto: Acelere su crecimiento con soluciones de software probadas\n\nHola [Nombre],\n\nSoy [Tu nombre] y ayudo a empresas tecnológicas a crecer más rápido con software personalizado.\n\n**Por qué nuestros clientes nos eligen:**\n\n• **Resultados rápidos**: Entregamos soluciones funcionales en 6-8 semanas promedio\n• **Crecimiento real**: Nuestros clientes aumentan su eficiencia operativa en 45% el primer año\n• **Soporte confiable**: 99.5% de disponibilidad y respuesta en menos de 2 horas\n\nRecién ayudamos a una startup fintech a procesar 10x más transacciones sin aumentar su equipo técnico.\n\n**¿Le interesa saber cómo?**\n\nPodríamos conversar 15 minutos sobre sus desafíos actuales. Sin compromisos, solo una charla entre profesionales.\n\n¿Qué tal el jueves a las 3 PM?\n\nSaludos,\n[Tu nombre]\nP.D.: Si prefiere, puede responder con un horario que le convenga mejor.',
                         buttonText: '📚 Ver técnica'
                     },
                     {
                         type: 'tip',
                         tip: {
-                            title: 'Técnica 5: Uso de ejemplos',
+                            title: 'Técnica 5: Uso de Ejemplos',
                             icon: '📚',
                             iconBg: 'bg-blue-100',
                             text: 'Usa uno o varios ejemplos para darle a la IA un punto de referencia que mejore sus resultados. Los ejemplos son muy poderosos.'
@@ -329,17 +307,17 @@
                     {
                         type: 'user',
                         message: 'Actúa como un experto en marketing B2B. Escribe un correo como este ejemplo exitoso: "Hola [Nombre], vi que [empresa] está expandiéndose. Ayudamos a empresas similares a escalar sin problemas técnicos. ¿Conversamos 10 minutos?" Adapta este estilo: directo, personal, con valor claro. NO uses jerga técnica, máximo 150 palabras.',
-                        buttonText: 'Ver respuesta mejorada'
+                        buttonText: 'Ver resultado final'
                     },
                     {
                         type: 'ai',
-                        message: 'Asunto: ¿Cómo está manejando [Empresa] el crecimiento actual?<br><br>Hola [Nombre],<br><br>Vi que [Empresa] está en una fase de expansión interesante. Felicitaciones.<br><br>Ayudo a empresas tech como la suya a crecer sin que la tecnología se convierta en un cuello de botella.<br><br>Por ejemplo, el mes pasado una empresa similar duplicó su capacidad de procesamiento en 3 semanas, sin contratar más desarrolladores.<br><br><strong>¿Su equipo está sintiendo la presión del crecimiento?</strong><br><br>Si es así, podríamos conversar 10 minutos sobre cómo mantener el ritmo sin comprometer la calidad.<br><br>Sin presentaciones largas ni propuestas complicadas. Solo una charla práctica entre profesionales.<br><br>¿Le parece bien el miércoles a las 2 PM?<br><br>Saludos,<br>[Tu nombre]<br><br><strong>P.D.:</strong> Si no es buen momento, solo responda "no gracias" y no volveré a contactarlo.',
+                        message: 'Asunto: ¿Cómo está manejando [Empresa] el crecimiento actual?\n\nHola [Nombre],\n\nVi que [Empresa] está en una fase de expansión interesante. Felicitaciones.\n\nAyudo a empresas tech como la suya a crecer sin que la tecnología se convierta en un cuello de botella.\n\nPor ejemplo, el mes pasado una empresa similar duplicó su capacidad de procesamiento en 3 semanas, sin contratar más desarrolladores.\n\n**¿Su equipo está sintiendo la presión del crecimiento?**\n\nSi es así, podríamos conversar 10 minutos sobre cómo mantener el ritmo sin comprometer la calidad.\n\nSin presentaciones largas ni propuestas complicadas. Solo una charla práctica entre profesionales.\n\n¿Le parece bien el miércoles a las 2 PM?\n\nSaludos,\n[Tu nombre]\n\nP.D.: Si no es buen momento, solo responda "no gracias" y no volveré a contactarlo.',
                         buttonText: '🔄 Ver técnica'
                     },
                     {
                         type: 'tip',
                         tip: {
-                            title: 'Técnica 6: Corrección y retroalimentación',
+                            title: 'Técnica 6: Corrección y Retroalimentación',
                             icon: '🔄',
                             iconBg: 'bg-orange-100',
                             text: 'Chatea con la IA como si fuera un colega. Indícale qué partes fueron útiles y cuáles podrían mejorarse. Si algo salió mal, díselo para que corrija ese error particular.'
@@ -353,13 +331,13 @@
                     },
                     {
                         type: 'ai',
-                        message: 'Asunto: Oportunidad de colaboración para el crecimiento de [Empresa]<br><br>Estimado/a [Nombre],<br><br>He observado el crecimiento impresionante que está experimentando [Empresa] y me gustaría felicitarle por estos logros.<br><br>En mi experiencia trabajando con empresas tecnológicas en expansión, he visto cómo el crecimiento acelerado puede generar desafíos técnicos inesperados.<br><br>Recientemente, colaboré con una empresa en situación similar que logró duplicar su capacidad de procesamiento en 3 semanas, optimizando su infraestructura existente sin necesidad de ampliar el equipo de desarrollo.<br><br><strong>¿Está su equipo técnico preparado para sostener este ritmo de crecimiento?</strong><br><br>Si considera que podría ser útil una conversación al respecto, estaría encantado de compartir algunas estrategias que han funcionado bien en casos similares.<br><br>Podríamos coordinar una breve llamada de 15 minutos esta semana, sin ningún compromiso.<br><br>¿Le resultaría conveniente el miércoles a las 2 PM?<br><br>Quedo a su disposición.<br><br>Cordialmente,<br>[Tu nombre]',
+                        message: 'Asunto: Oportunidad de colaboración para el crecimiento de [Empresa]\n\nEstimado/a [Nombre],\n\nHe observado el crecimiento impresionante que está experimentando [Empresa] y me gustaría felicitarle por estos logros.\n\nEn mi experiencia trabajando con empresas tecnológicas en expansión, he visto cómo el crecimiento acelerado puede generar desafíos técnicos inesperados.\n\nRecientemente, colaboré con una empresa en situación similar que logró duplicar su capacidad de procesamiento en 3 semanas, optimizando su infraestructura existente sin necesidad de ampliar el equipo de desarrollo.\n\n**¿Está su equipo técnico preparado para sostener este ritmo de crecimiento?**\n\nSi considera que podría ser útil una conversación al respecto, estaría encantado de compartir algunas estrategias que han funcionado bien en casos similares.\n\nPodríamos coordinar una breve llamada de 15 minutos esta semana, sin ningún compromiso.\n\n¿Le resultaría conveniente el miércoles a las 2 PM?\n\nQuedo a su disposición.\n\nCordialmente,\n[Tu nombre]',
                         buttonText: '❓ Ver técnica'
                     },
                     {
                         type: 'tip',
                         tip: {
-                            title: 'Técnica 7: Solicita información adicional',
+                            title: 'Técnica 7: Solicitar Información Adicional',
                             icon: '❓',
                             iconBg: 'bg-cyan-100',
                             text: 'Pide a la IA que te pregunte qué requiere para completar la tarea. Esto te ayudará a obtener resultados más precisos y personalizados.'
@@ -373,13 +351,13 @@
                     },
                     {
                         type: 'ai',
-                        message: 'Perfecto, me gustaría conocer algunos detalles para crear un correo de seguimiento efectivo:<br><br><strong>Sobre el contexto:</strong><br>• ¿Cuánto tiempo ha pasado desde tu propuesta inicial?<br>• ¿Qué tipo de servicio o producto propusiste?<br>• ¿Hubo alguna interacción previa (reunión, llamada, etc.)?<br><br><strong>Sobre el cliente:</strong><br>• ¿Cuál es su industria o sector?<br>• ¿Conoces el motivo por el cual podría no haber respondido?<br>• ¿Qué nivel jerárquico tiene la persona (CEO, gerente, etc.)?<br><br><strong>Sobre el enfoque:</strong><br>• ¿Prefieres un tono más directo o más sutil?<br>• ¿Hay alguna urgencia o fecha límite?<br>• ¿Quieres ofrecer algo adicional (descuento, consulta gratuita, etc.)?<br><br><strong>Sobre el objetivo:</strong><br>• ¿Buscas una respuesta, agendar una reunión, o cerrar la venta?<br><br>Con esta información podré crear un correo de seguimiento mucho más efectivo y personalizado.',
+                        message: 'Perfecto, me gustaría conocer algunos detalles para crear un correo de seguimiento efectivo:\n\n**Sobre el contexto:**\n• ¿Cuánto tiempo ha pasado desde tu propuesta inicial?\n• ¿Qué tipo de servicio o producto propusiste?\n• ¿Hubo alguna interacción previa (reunión, llamada, etc.)?\n\n**Sobre el cliente:**\n• ¿Cuál es su industria o sector?\n• ¿Conoces el motivo por el cual podría no haber respondido?\n• ¿Qué nivel jerárquico tiene la persona (CEO, gerente, etc.)?\n\n**Sobre el enfoque:**\n• ¿Prefieres un tono más directo o más sutil?\n• ¿Hay alguna urgencia o fecha límite?\n• ¿Quieres ofrecer algo adicional (descuento, consulta gratuita, etc.)?\n\n**Sobre el objetivo:**\n• ¿Buscas una respuesta, agendar una reunión, o cerrar la venta?\n\nCon esta información podré crear un correo de seguimiento mucho más efectivo y personalizado.',
                         buttonText: '🎯 Ver técnica'
                     },
                     {
                         type: 'tip',
                         tip: {
-                            title: 'Técnica 8: Iteración y refinamiento',
+                            title: 'Técnica 8: Iteración y Refinamiento',
                             icon: '🎯',
                             iconBg: 'bg-pink-100',
                             text: 'Combina todas las técnicas anteriores en un proceso iterativo. Usa retroalimentación, solicita información, aplica ejemplos y refina hasta obtener el resultado perfecto.'
@@ -393,178 +371,134 @@
                     },
                     {
                         type: 'ai',
-                        message: 'Asunto: Seguimiento a nuestra conversación sobre desarrollo web - [Empresa]<br><br>Estimado [Nombre del Director],<br><br>Espero que se encuentre bien. Han pasado un par de semanas desde nuestra productiva reunión sobre las necesidades de desarrollo web de [Empresa].<br><br>Recuerdo que mencionó la importancia de mejorar la experiencia de compra online y optimizar el rendimiento del sitio actual. Estos puntos resonaron mucho conmigo, especialmente considerando los desafíos únicos que enfrenta el sector retail.<br><br><strong>Desde nuestra conversación, he estado reflexionando sobre:</strong><br><br>• La integración con su sistema de inventario actual<br>• Las oportunidades de personalización que discutimos<br>• El cronograma que mejor se adapte a su temporada alta<br><br>También preparé algunos casos de estudio específicos del sector retail que creo podrían interesarle, incluyendo una empresa similar que aumentó sus conversiones en 35% tras la optimización.<br><br>¿Le parecería útil que nos reuniéramos nuevamente para profundizar en estos temas? Podría ser una conversación de 30 minutos donde también puedo mostrarle algunos mockups iniciales basados en lo que discutimos.<br><br>¿Qué tal la próxima semana? Tengo disponibilidad el martes y jueves por la tarde.<br><br>Quedo atento a sus comentarios.<br><br>Saludos cordiales,<br>[Tu nombre]<br><br><strong>P.D.:</strong> Si necesita más tiempo para evaluar internamente, no hay problema. Solo hágamelo saber y podemos coordinar para más adelante.',
+                        message: 'Asunto: Seguimiento a nuestra conversación sobre desarrollo web - [Empresa]\n\nEstimado [Nombre del Director],\n\nEspero que se encuentre bien. Han pasado un par de semanas desde nuestra productiva reunión sobre las necesidades de desarrollo web de [Empresa].\n\nRecuerdo que mencionó la importancia de mejorar la experiencia de compra online y optimizar el rendimiento del sitio actual. Estos puntos resonaron mucho conmigo, especialmente considerando los desafíos únicos que enfrenta el sector retail.\n\n**Desde nuestra conversación, he estado reflexionando sobre:**\n\n• La integración con su sistema de inventario actual\n• Las oportunidades de personalización que discutimos\n• El cronograma que mejor se adapte a su temporada alta\n\nTambién preparé algunos casos de estudio específicos del sector retail que creo podrían interesarle, incluyendo una empresa similar que aumentó sus conversiones en 35% tras la optimización.\n\n¿Le parecería útil que nos reuniéramos nuevamente para profundizar en estos temas? Podría ser una conversación de 30 minutos donde también puedo mostrarle algunos mockups iniciales basados en lo que discutimos.\n\n¿Qué tal la próxima semana? Tengo disponibilidad el martes y jueves por la tarde.\n\nQuedo atento a sus comentarios.\n\nSaludos cordiales,\n[Tu nombre]\n\nP.D.: Si necesita más tiempo para evaluar internamente, no hay problema. Solo hágamelo saber y podemos coordinar para más adelante.',
                         buttonText: 'Completar simulación',
                         final: true
                     }
                 ];
-
+                
                 this.init();
             }
-
+            
             init() {
                 this.startBtn.addEventListener('click', () => this.startSimulation());
                 this.nextBtn.addEventListener('click', () => this.nextStep());
                 this.tipContinue.addEventListener('click', () => this.hideTip());
                 this.updateProgress();
             }
-
+            
             startSimulation() {
                 this.coverPage.classList.add('hidden');
                 this.simulatorInterface.classList.remove('hidden');
             }
-
+            
             nextStep() {
-                if (this.currentStep === 0) {
-                    // Mostrar instrucciones iniciales
-                    this.showInitialInstructions();
-                    this.currentStep++;
-                    this.updateProgress();
-                } else if (this.currentStep <= this.steps.length) {
-                    const step = this.steps[this.currentStep - 1];
-
+                if (this.currentStep < this.steps.length) {
+                    const step = this.steps[this.currentStep];
+                    
                     if (step.type === 'tip') {
                         this.showTip(step.tip);
                     } else {
                         this.addMessage(step.type, step.message);
-
+                        
                         if (step.final) {
                             this.completeSimulation();
                         } else {
                             this.updateButton();
                         }
                     }
-
+                    
                     this.currentStep++;
                     this.updateProgress();
                 }
             }
-
+            
             addMessage(type, message) {
                 const messageDiv = document.createElement('div');
                 messageDiv.className = `fade-in flex ${type === 'user' ? 'justify-end' : 'justify-start'}`;
-
+                
                 const bubble = document.createElement('div');
                 bubble.className = `message-bubble p-4 rounded-lg ${type === 'user' ? 'user-message' : 'ai-message'}`;
-
+                
                 if (type === 'user') {
                     bubble.innerHTML = `
-                        <div class="flex items-start space-x-2">
+                        <div class="flex items-start space-x-3">
                             <div class="flex-1">
-                                <div class="font-medium text-gray-800 mb-1 text-sm">Tú</div>
-                                <div class="text-gray-700 whitespace-pre-line text-sm">${message}</div>
+                                <div class="font-medium text-gray-800 mb-1">Tú</div>
+                                <div class="text-gray-700 whitespace-pre-line">${message}</div>
                             </div>
-                            <div class="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center text-white text-xs font-medium">
+                            <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white text-sm font-medium">
                                 U
                             </div>
                         </div>
                     `;
                 } else {
                     bubble.innerHTML = `
-                        <div class="flex items-start space-x-2">
-                                <!-- Círculo con borde arcoíris y centro blanco -->
-                                <div class="w-8 h-8 bg-gradient-to-r from-pink-500 via-yellow-400 to-blue-500 rounded-full p-0.5 flex items-center justify-center">
-                                    <div class="w-full h-full bg-white rounded-full flex items-center justify-center text-xs text-black">
-                                        <img src="./images/copilot.png" alt="Copilot" class="w-[80px] h-auto">
-                                    </div>
-                                </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white text-sm">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                </svg>
+                            </div>
                             <div class="flex-1">
-                                <div class="font-medium text-gray-800 mb-1 text-sm">Copilot</div>
-                                <div class="text-gray-700 whitespace-pre-line text-sm">${message}</div>
+                                <div class="font-medium text-gray-800 mb-1">Copilot</div>
+                                <div class="text-gray-700 whitespace-pre-line">${message}</div>
                             </div>
                         </div>
                     `;
                 }
-
+                
                 messageDiv.appendChild(bubble);
                 this.chatArea.appendChild(messageDiv);
                 this.chatArea.scrollTop = this.chatArea.scrollHeight;
             }
-
+            
             showTip(tip) {
                 this.tipIcon.innerHTML = `<span class="text-2xl">${tip.icon}</span>`;
                 this.tipIcon.className = `w-12 h-12 ${tip.iconBg} rounded-full flex items-center justify-center mr-4`;
-
+                
                 // Update the title
                 const tipTitle = document.querySelector('#tipOverlay h3');
                 tipTitle.textContent = tip.title;
-
+                
                 this.tipText.textContent = tip.text;
                 this.tipOverlay.classList.remove('hidden');
                 this.tipOverlay.classList.add('flex');
             }
-
+            
             hideTip() {
                 this.tipOverlay.classList.add('hidden');
                 this.tipOverlay.classList.remove('flex');
                 this.updateButton();
             }
-
-            showInitialInstructions() {
-                const instructionsDiv = document.createElement('div');
-                instructionsDiv.className = 'fade-in bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4';
-                instructionsDiv.innerHTML = `
-                    <div class="flex items-start space-x-3">
-                        <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white text-sm font-bold">
-                            i
-                        </div>
-                        <div class="flex-1">
-                            <h3 class="font-semibold text-blue-800 mb-2 text-sm">📋 Instrucciones</h3>
-                            <div class="text-blue-700 text-xs space-y-2">
-                                <p><strong>¿Cómo funciona esta simulación?</strong></p>
-                                <ul class="list-disc list-inside space-y-1 ml-2">
-                                    <li>Lee atentamente cada prompt (mensaje del usuario) y la respuesta de Copilot</li>
-                                    <li>Observa las diferencias entre las respuestas cuando mejoramos los prompts</li>
-                                    <li>Descubre las técnicas que hacen que un prompt sea más efectivo</li>
-                                    <li>Al final, sabrás cómo crear prompts que generen mejores resultados</li>
-                                </ul>
-                                <p class="font-medium">💡 <strong>Consejo:</strong> Presta especial atención a cómo evoluciona cada prompt y qué elementos nuevos se van agregando.</p>
-                            </div>
-                        </div>
-                    </div>
-                `;
-
-                this.chatArea.appendChild(instructionsDiv);
-                this.chatArea.scrollTop = this.chatArea.scrollHeight;
-
-                // Actualizar el botón para el primer prompt real
-                this.nextBtn.textContent = 'Comenzar con el primer prompt';
-            }
-
-
+            
             updateButton() {
-                // Solo actualizar el botón si estamos en un paso válido (no en el paso 0 de instrucciones)
-                if (this.currentStep > 0 && this.currentStep <= this.steps.length) {
-                    this.nextBtn.textContent = this.steps[this.currentStep - 1].buttonText;
+                if (this.currentStep < this.steps.length) {
+                    this.nextBtn.textContent = this.steps[this.currentStep].buttonText;
                 }
-                // Si currentStep === 0, no hacer nada (mantener "Ver instrucciones")
-                // Si currentStep > steps.length, no hacer nada (será manejado por completeSimulation)
             }
-
+            
             updateProgress() {
-                const totalSteps = this.steps.length + 1; // +1 para las instrucciones
-                const progress = (this.currentStep / totalSteps) * 100;
+                const progress = (this.currentStep / this.steps.length) * 100;
                 this.progressBar.style.width = `${progress}%`;
-                this.stepCounter.textContent = Math.min(this.currentStep, totalSteps);
-
+                this.stepCounter.textContent = Math.min(this.currentStep + 1, this.steps.length);
+                
                 if (this.currentStep === 0) {
                     this.progressText.textContent = 'Listo para empezar';
-                } else if (this.currentStep === 1) {
-                    this.progressText.textContent = 'Leyendo instrucciones...';
-                } else if (this.currentStep <= totalSteps) {
+                } else if (this.currentStep < this.steps.length) {
                     this.progressText.textContent = 'En progreso...';
                 } else {
                     this.progressText.textContent = '¡Completado!';
                 }
             }
-
+            
             completeSimulation() {
                 this.nextBtn.textContent = '🔄 Reiniciar Simulación';
                 this.nextBtn.disabled = false;
                 this.nextBtn.className = 'bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold text-lg shadow-lg transition-all transform hover:scale-105';
                 this.nextBtn.onclick = () => this.restartSimulation();
                 this.progressText.textContent = '¡Excelente trabajo!';
-
+                
                 // Mostrar mensaje final
                 setTimeout(() => {
                     const finalMessage = document.createElement('div');
@@ -578,45 +512,31 @@
                     this.chatArea.scrollTop = this.chatArea.scrollHeight;
                 }, 1000);
             }
-
+            
             restartSimulation() {
-                // Resetear variables al estado inicial completo
+                // Resetear variables
                 this.currentStep = 0;
-
+                
                 // Limpiar el área de chat
                 this.chatArea.innerHTML = '';
-
-                // Ocultar cualquier tip que esté visible
-                this.tipOverlay.classList.add('hidden');
-                this.tipOverlay.classList.remove('flex');
-
-                // Resetear el botón nextBtn al estado inicial de cuando se abre el simulador
-                this.nextBtn.textContent = 'Ver instrucciones';
-                this.nextBtn.disabled = false;
-                this.nextBtn.className = 'bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold text-sm shadow-lg transition-all transform hover:scale-105';
-
-                // Remover cualquier listener previo y asignar el correcto
-                this.nextBtn.onclick = null;
+                
+                // Resetear el botón
+                this.nextBtn.textContent = 'Comenzar con el primer prompt';
                 this.nextBtn.onclick = () => this.nextStep();
-
-                // Actualizar el contador de pasos al estado inicial
-                this.stepCounter.textContent = '1';
-
-                // Actualizar progreso al estado inicial
+                
+                // Actualizar progreso
                 this.updateProgress();
-
-                // Volver a la pantalla inicial (portada)
+                
+                // Volver a la pantalla inicial
                 this.simulatorInterface.classList.add('hidden');
                 this.coverPage.classList.remove('hidden');
             }
         }
-
+        
         // Inicializar la simulación cuando se carga la página
         document.addEventListener('DOMContentLoaded', () => {
             new PromptEngineeringSimulator();
         });
     </script>
-    <script>(function () { function c() { var b = a.contentDocument || a.contentWindow.document; if (b) { var d = b.createElement('script'); d.innerHTML = "window.__CF$cv$params={r:'96705c57d010b1f2',t:'MTc1MzgzMTM3MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);"; b.getElementsByTagName('head')[0].appendChild(d) } } if (document.body) { var a = document.createElement('iframe'); a.height = 1; a.width = 1; a.style.position = 'absolute'; a.style.top = 0; a.style.left = 0; a.style.border = 'none'; a.style.visibility = 'hidden'; document.body.appendChild(a); if ('loading' !== document.readyState) c(); else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c); else { var e = document.onreadystatechange || function () { }; document.onreadystatechange = function (b) { e(b); 'loading' !== document.readyState && (document.onreadystatechange = e, c()) } } } })();</script>
-</body>
-
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'966e27ab047c55c3',t:'MTc1MzgwODI0Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
